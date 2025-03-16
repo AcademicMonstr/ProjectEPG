@@ -24,3 +24,26 @@ int32_t FindElement(T* arr,T elem, int32_t size)
     }
     return temp;
 }
+
+int64_t SumAllPrimeInArray(int32_t *arr, int32_t ArraySize)
+{
+    bool isPrime{ true };
+    int64_t summ{};
+    for (int32_t i{}; i < ArraySize; ++i)
+    {
+        for (int32_t j{ 2 }; j * j <= arr[i]; ++j)
+        {
+            if (arr[i] % j == 0)
+            {
+                isPrime = false;
+                break;
+            }
+        }
+        if (arr[i] > 1 && isPrime)
+        {
+            summ += arr[i];
+        }
+        isPrime = true;
+    }
+    return summ;
+}
