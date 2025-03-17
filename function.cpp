@@ -51,6 +51,7 @@ int64_t SumAllPrimeInArray(int32_t *arr, int32_t ArraySize)
 template<typename T>
 void bubleSort(T* arr, int32_t ArraySize)
 {
+    ArraySize--;
     for (int32_t i{}; i < ArraySize; ++i) 
     {
         bool swapped { false };
