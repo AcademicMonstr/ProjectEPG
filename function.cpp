@@ -47,3 +47,25 @@ int64_t SumAllPrimeInArray(int32_t *arr, int32_t ArraySize)
     }
     return summ;
 }
+
+template<typename T>
+void bubleSort(T* arr, int32_t ArraySize)
+{
+    for (int32_t i{}; i < ArraySize; ++i) 
+    {
+        bool swapped { false };
+        for (int32_t j{}; j < ArraySize - i; ++j) 
+        {
+            if (arr[j] > arr[j + 1]) 
+            {
+                std::swap(arr[j], arr[j + 1]);
+                swapped = true;
+            }
+        }
+        if (!swapped) 
+        {
+            break;
+        }
+    }
+
+}
