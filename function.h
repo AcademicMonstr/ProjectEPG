@@ -10,3 +10,5 @@ int64_t SumAllPrimeInArray(int32_t *arr, int32_t ArraySize);
 
 template<typename T>
 void bubleSort(T* arr, int32_t ArraySize);
+
+bool isPrime(int32_t number);
