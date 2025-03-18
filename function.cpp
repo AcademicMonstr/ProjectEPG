@@ -2,9 +2,9 @@
 #include<cmath>
 
 template <typename T>
-void InputArr(T* arr, int32_t ArraySize)
+void InputArr(T* arr, int32_t arraySize)
 {
-    for(int32_t i{}; i < ArraySize; ++i)
+    for(int32_t i{}; i < arraySize; ++i)
     {
         std::cin >> arr[i];
     }
@@ -14,48 +14,51 @@ void InputArr(T* arr, int32_t ArraySize)
 template <typename T>
 int32_t FindElement(T* arr,T elem, int32_t size)
 {
-    int32_t temp{-1};
+    int32_t position{-1};
     for(int32_t i{}; i < size; ++i)
     {
         if(arr[i] == elem)
         {
-            temp = ++i;
+            position = ++i;
         }
     }
-    return temp;
+    return position;
 }
 
-int64_t SumAllPrimeInArray(int32_t *arr, int32_t ArraySize)
+bool isPrime(int32_t number)
 {
-    bool isPrime{ true };
-    int64_t summ{};
-    for (int32_t i{}; i < ArraySize; ++i)
+    for (int32_t j{ 2 }; j * j <= number; ++j)
     {
-        for (int32_t j{ 2 }; j * j <= arr[i]; ++j)
+        if (arr[i] % j == 0)
         {
-            if (arr[i] % j == 0)
-            {
-                isPrime = false;
-                break;
-            }
+            return false;
         }
-        if (arr[i] > 1 && isPrime)
+    }
+    return true;
+}
+
+int64_t SumAllPrimeInArray(int32_t *arr, int32_t arraySize)
+{
+    int64_t summ{};
+    for (int32_t i{}; i < arraySize; ++i)
+    {
+        if (isPrime(arr[i]))
         {
             summ += arr[i];
         }
-        isPrime = true;
     }
     return summ;
 }
 
+
 template<typename T>
-void bubleSort(T* arr, int32_t ArraySize)
+void bubleSort(T* arr, int32_t arraySize)
 {
-    ArraySize--;
-    for (int32_t i{}; i < ArraySize; ++i) 
+    arraySize--;
+    for (int32_t i{}; i < arraySize; ++i) 
     {
         bool swapped { false };
-        for (int32_t j{}; j < ArraySize - i; ++j) 
+        for (int32_t j{}; j < arraySize - i; ++j) 
         {
             if (arr[j] > arr[j + 1]) 
             {
@@ -68,5 +71,4 @@ void bubleSort(T* arr, int32_t ArraySize)
             break;
         }
     }
-
 }
