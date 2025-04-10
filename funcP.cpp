@@ -32,8 +32,8 @@ int MaxElement(int arr[], int size) {
     int maxIndex = 0;
 
     for (int i = 1; i < size; i++) {
-        if (arr[i] > arr[maxIndex]) {
-            maxIndex = i;
+        if (arr[i] > arr[maxIndex + 1]) {
+            maxIndex = i + 1;
         }
     }
     return maxIndex;
